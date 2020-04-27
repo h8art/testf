@@ -1,32 +1,40 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang='pug'>
+  v-app
+    v-navigation-drawer(
+      v-model="drawer"
+      :expand-on-hover="true"
+      :right="right"
+      src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+      app
+    )
+      v-list(dense nav='true')
+        v-list-item(link to="/shedule")
+          v-list-item-icon
+            v-icon assignment_turned_in
+          v-list-item-content
+            v-list-item-title Расписание
+        v-list-item(link to='/')
+          v-list-item-icon
+            v-icon movie
+          v-list-item-content
+            v-list-item-title Видео
+    v-content
+      router-view 
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HelloWorld from './components/HelloWorld';
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  components: {
+    HelloWorld,
+  },
+  mounted() {
+    this.$vuetify.theme.isDark = true
+  },
+  data: () => ({
+    //
+  }),
+};
+</script>
