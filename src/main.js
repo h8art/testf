@@ -8,7 +8,7 @@ import axios from 'axios';
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
-const apiUrl = "http://10.101.104.28:8083/"
+const apiUrl = "http://10.101.104.29:8083/"
 Vue.axios.defaults.baseURL = apiUrl + '/api/v1';
 new Vue({
   router,
